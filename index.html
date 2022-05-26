@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="./css/animation.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!--引用百度地图API-->
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=2.0&ak=QOSB48ormFcQbksB3EmQbHbw6RH4aGwS"></script>
+    <script src="./js/date.js"></script>
+</head>
+
+<body>
+
+    <div class="nav" id="nav">
+        <div class="wrap">
+            <ul>
+                <li><a href=""><i class="icon"><img src="./img/home.png" alt=""></i>About Calendar </a></li>
+                <li><a href="#">Almanac</a></li>
+                <li><a href="#">Holiday </a></li>
+                <li><a href="#">Notice</a></li>
+                <li><a href="#">other</a></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner">
+        <div class="wrap clearfix">
+            <div class="b_le">
+                <img src="img/2.png" />
+            </div>
+            <div class="b_ri">
+                <dl>
+                    <dt>
+                        <p id="demo"></p>
+                    </dt>
+                    <dd id="dd"></dd>
+                    <dd id="dd2"></dd>
+                </dl>
+
+                <script>
+                    var d = new Date();
+                    document.getElementById("demo").innerHTML = d.toDateString();
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="list">
+        <div class="wrap clearfix">
+            <dl data-aos="fade-right">
+                <dt><img src="img/3.png" /></dt>
+                <dd>1月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/4.png" /></dt>
+                <dd>2月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/5.png" /></dt>
+                <dd>3月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/6.png" /></dt>
+                <dd>4月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/7.png" /></dt>
+                <dd>5月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/8.png" /></dt>
+                <dd>6月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/9.png" /></dt>
+                <dd>7月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/10.png" /></dt>
+                <dd>8月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/11.png" /></dt>
+                <dd>9月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/12.png" /></dt>
+                <dd>10月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/13.png" /></dt>
+                <dd>11月</dd>
+            </dl>
+            <dl data-aos="fade-right">
+                <dt><img src="img/14.png" /></dt>
+                <dd>12月</dd>
+            </dl>
+        </div>
+
+    </div>
+
+    <div class="line">
+        <div class="wrap">
+            <img src="img/line.jpg" />
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="wrap">
+            <h4 id="wr4">当月のメモ
+                <a href="#"><img src="img/right.jpg" /></a>
+            </h4>
+            <div class="main_list">
+                <div class="mian_back">
+
+                    <p class="list_p">
+                        あなたはこの世界で一番無二です
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="wrap">
+            <h4>どこ行くの
+                <a href="#"><img src="img/right.jpg" /></a>
+            </h4>
+            <div class="map" id="map">
+                <div style="width:100%;height:550px;border:#ccc solid 1px;font-size:12px" id="map"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="yright">
+        <a href="#nav"><img src="img/top.jpg" /></a>
+        <a href="#map"><img src="img/down.jpg" /></a>
+    </div>
+
+    <div class="nav" id="nav">
+        <div class="wrap">
+            <ul>
+                <li><a href="./Almanac/Almanac.html"><i class="icon"><img src="./img/home.png" alt=""></i>About Calendar
+                    </a></li>
+                <li><a href="#">Almanac</a></li>
+                <li><a href="#">Holiday </a></li>
+                <li><a href="#">Notice</a></li>
+                <li><a href="#">other</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--漂浮进来效果-->
+    <link rel="stylesheet" type="text/css" href="css/aos.css" />
+    <script type="text/javascript" src="js/aos.js"></script>
+    <script>
+        AOS.init({
+            easing: 'ease',
+            duration: 1000,
+            offset: 200,
+            once: true,
+        });
+    </script>
+
+    <script type="text/javascript">
+        //创建和初始化地图函数：
+        function initMap() {
+            createMap(); //创建地图
+            setMapEvent(); //设置地图事件
+            addMapControl(); //向地图添加控件
+            addMapOverlay(); //向地图添加覆盖物
+        }
+
+        function createMap() {
+            map = new BMap.Map("map");
+            map.centerAndZoom(new BMap.Point(130.4447392909592, 33.67062690540013), 25);
+        }
+
+        function setMapEvent() {
+            map.enableScrollWheelZoom();
+            map.enableKeyboard();
+            map.enableDragging();
+            map.enableDoubleClickZoom()
+        }
+
+        function addClickHandler(target, window) {
+            target.addEventListener("click", function () {
+                target.openInfoWindow(window);
+            });
+        }
+
+        function addMapOverlay() { }
+        //向地图添加控件
+        function addMapControl() {
+            var scaleControl = new BMap.ScaleControl({
+                anchor: BMAP_ANCHOR_BOTTOM_LEFT
+            });
+            scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+            map.addControl(scaleControl);
+            var navControl = new BMap.NavigationControl({
+                anchor: BMAP_ANCHOR_TOP_LEFT,
+                type: BMAP_NAVIGATION_CONTROL_LARGE
+            });
+            map.addControl(navControl);
+            var overviewControl = new BMap.OverviewMapControl({
+                anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+                isOpen: true
+            });
+            map.addControl(overviewControl);
+        }
+        var map;
+        initMap();
+    </script>
+</body>
+
+</html>
