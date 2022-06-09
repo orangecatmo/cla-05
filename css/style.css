@@ -3,15 +3,19 @@
         height: 3rem;
         font-size: 0.5rem;
     }
+
     .wrap {
         width: 80% !important;
     }
+
     .b_le {
         float: none;
     }
+
     .b_ri {
         float: left !important;
     }
+
     .main_list .list_p {
         font-size: 1.5rem;
     }
@@ -21,6 +25,7 @@
     .nav ul li {
         display: block !important;
     }
+
     .map {
         height: 30em !important;
     }
@@ -205,18 +210,30 @@ body {
 .main_list {
     background: #fff;
     width: 100%;
-    height: 200px;
+    height: 300px;
+    /* padding-bottom: 100px; */
     /* background-position-x: 10px; */
-    padding-bottom: 100px;
     transition: all 1s linear;
 }
 
 .mian_back {
-    height: 200px;
-    background-image: url(../img/T.png);
-    background-size: 80%;
+    position: relative;
+    height: 100%;
+    /* background-image: url(../img/T.png); */
+    background-image: url("../img/t_bg.png");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position-x: 50%;
+}
+
+.arrow {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 24px;
+    color: #fff;
+    width: fit-content;
+    transform: translate(-50%, -50%);
 }
 
 .mian_back2 {
