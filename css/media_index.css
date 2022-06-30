@@ -1,0 +1,55 @@
+@media screen and (max-width:720px) {
+  .pc-wrap {
+    display: none;
+  }
+
+  .mobile-wrap {
+    display: block;
+  }
+
+  .mobile-wrap .menu_btn {
+    width: fit-content;
+    margin-left: auto;
+  }
+
+  .mobile-wrap .mobile_menu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    transition: all .5s;
+  }
+
+  .mobile-wrap ul {
+    position: relative;
+    z-index: 9;
+    width: 50vw;
+    height: 100%;
+    padding-top: 50px;
+    background-color: #040816;
+  }
+
+  .mobile-wrap .hide {
+    left: -100vw;
+  }
+
+  .mobile-wrap .show {
+    left: 0;
+  }
+
+  .mobile-wrap ul li {
+    line-height: 50px;
+  }
+
+  .mobile-wrap .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+  }
+}

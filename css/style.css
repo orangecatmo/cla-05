@@ -300,3 +300,7 @@ body {
     height: 550px;
     width: 100%;
 }
+
+.mobile-wrap {
+    display: none;
+}
