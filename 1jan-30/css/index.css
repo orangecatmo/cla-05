@@ -45,7 +45,6 @@ section .time .time__current .time__current--hs {
 
 /* 星期几 */
 
-
 /* section .time .time__current .time__current--hs #timeWeek {
     font-size: 1.55rem;
 } */
@@ -81,6 +80,7 @@ section .time .time__month .time__bg img {
     to {
         transform: rotate(0deg);
     }
+
     from {
         transform: rotate(-360deg);
     }
@@ -117,7 +117,7 @@ section .time .time__month .time__bg img {
 
 .tl-toubu p {
     font-weight: bold;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .tl-toubu .ri-toubu-right {
@@ -126,7 +126,6 @@ section .time .time__month .time__bg img {
     justify-content: space-between;
     align-items: center;
 }
-
 
 /* .tl-toubu .ri-toubu-right div:nth-child(1) {
     margin-top: 10px;
@@ -174,7 +173,7 @@ section .time .time__month .time__bg img {
     cursor: pointer;
     border-radius: 12px;
     padding: 5px 10px;
-    background-color: rgb(254, 246, 3, .3);
+    background-color: #FFCE15;
     user-select: none;
 }
 
@@ -217,6 +216,7 @@ td {
 }
 
 @media screen and (max-width:900px) {
+
     th,
     td {
         /* height: 3rem; */
@@ -261,7 +261,7 @@ thead>tr th {
     height: 1rem;
 }
 
-.calendar_end .left ul li+li {
+.calendar_end .left ul li + li {
     margin-left: 1rem;
 }
 
@@ -299,6 +299,7 @@ thead>tr th {
     font-size: 0.89rem;
     margin-bottom: 0.26rem;
 }
+
 
 .dayIntroduced__top,
 .dayIntroduced__bottom {
@@ -345,6 +346,7 @@ thead>tr th {
     text-align: right;
     /* margin-left: 1rem; */
 }
+
 
 .end {
     position: relative;

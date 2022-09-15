@@ -6,24 +6,24 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" href="./css/animation.css">
-    <!-- 头部样式 -->
-    <!-- <link rel="stylesheet" href="./css/base.css">
-    <link rel="stylesheet" href="./css/index.css"> -->
     <script type="text/javascript" src="js/jquery.js"></script>
     <!--引用百度地图API-->
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=QOSB48ormFcQbksB3EmQbHbw6RH4aGwS"></script>
+    <script type="text/javascript"
+        src="https://api.map.baidu.com/api?v=2.0&ak=QOSB48ormFcQbksB3EmQbHbw6RH4aGwS"></script>
     <script src="./js/date.js"></script>
 </head>
 
 <body>
+
     <div class="nav" id="nav">
         <div class="wrap">
             <ul>
                 <li><a href=""><i class="icon"><img src="./img/home.png" alt=""></i>About Calendar </a></li>
-                <li><a href="./Almanac/Almanac.html">Almanac</a></li>
+                <li><a href="./1jan-30/index.html">Almanac</a></li>
                 <li><a href="#">Holiday </a></li>
                 <li><a href="#">Notice</a></li>
                 <li><a href="#">other</a></li>
+
             </ul>
         </div>
     </div>
@@ -31,7 +31,9 @@
     <div class="banner">
         <div class="wrap clearfix">
             <div class="b_le">
-                <a href="./1jan-30/index.html"> <img src="img/2.png" /></a>
+                <a href="./1jan-30/index.html">
+                    <img id="toCurrentDate" src="img/2.png" />
+                </a>
             </div>
             <div class="b_ri">
                 <dl>
@@ -50,55 +52,53 @@
         </div>
     </div>
 
-
-
     <div class="list">
         <div class="wrap clearfix">
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/3.png" /></dt>
                 <dd>1月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/4.png" /></dt>
                 <dd>2月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/5.png" /></dt>
                 <dd>3月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/6.png" /></dt>
                 <dd>4月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/7.png" /></dt>
                 <dd>5月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/8.png" /></dt>
                 <dd>6月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/9.png" /></dt>
                 <dd>7月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/10.png" /></dt>
                 <dd>8月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-righ" class="calend">
                 <dt><img src="img/11.png" /></dt>
                 <dd>9月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/12.png" /></dt>
                 <dd>10月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/13.png" /></dt>
                 <dd>11月</dd>
             </dl>
-            <dl data-aos="fade-right">
+            <dl data-aos="fade-right" class="calend">
                 <dt><img src="img/14.png" /></dt>
                 <dd>12月</dd>
             </dl>
@@ -114,19 +114,20 @@
 
     <div class="main">
         <div class="wrap">
-            <h4 id="wr4">一日一籤
-                <a href="#"><img src="" /></a>
+            <h4>当月のメモ
+                <a href="#"><img src="img/right.jpg" /></a>
             </h4>
             <div class="main_list">
-                <div class="mian_back">
-
-                    <p class="list_p">
-                        今日は何の日ですか
-                    </p>
-                    <div class="arrow">
-                        <i><img width="30" src="./img/t_c.png" alt=""></i>
-                    </div>
-                </div>
+                <p class="list_p">
+                    あなたはこの世界で一番無二です
+                </p>
+                <!-- <ul>
+                    <li><a href="#">TOP</a></li>
+                    <li><a href="#">お知らせ</a></li>
+                    <li><a href="#">年间</a></li>
+                    <li><a href="#">祝日</a></li>
+                    <li><a href="#">カレンダーについて</a></li>
+                </ul> -->
             </div>
         </div>
     </div>
@@ -194,12 +195,12 @@
         }
 
         function addClickHandler(target, window) {
-            target.addEventListener("click", function() {
+            target.addEventListener("click", function () {
                 target.openInfoWindow(window);
             });
         }
 
-        function addMapOverlay() {}
+        function addMapOverlay() { }
         //向地图添加控件
         function addMapControl() {
             var scaleControl = new BMap.ScaleControl({
@@ -220,6 +221,27 @@
         }
         var map;
         initMap();
+    </script>
+
+    <script>
+        const calends = document.querySelectorAll('.calend')
+        let i = 0
+        for (let item of calends) {
+            item.addEventListener('click', toCalendar.bind(item, i))
+            i++
+        }
+
+        function toCalendar(index) {
+            location.href = './1jan-30/index.html#' + index
+        }
+
+        // const toCurrentDate = document.querySelector('#toCurrentDate')
+        // toCurrentDate.addEventListener('mousemove', function (e) {
+        //     const x = e.clientX
+        //     const y = e.clientY
+        //     const height = this.offsetWidth
+        //     console.log(x, y)
+        // })
     </script>
 </body>
 
