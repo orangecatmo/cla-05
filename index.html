@@ -3,60 +3,35 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" href="./css/media_index.css">
     <link rel="stylesheet" href="./css/animation.css">
-    <link rel="stylesheet" type="text/css" href="css/aos.css" />
-
-    <script src="js/jquery.js"></script>
+    <!-- 头部样式 -->
+    <!-- <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/index.css"> -->
+    <script type="text/javascript" src="js/jquery.js"></script>
     <!--引用百度地图API-->
-    <script src="https://api.map.baidu.com/api?v=2.0&ak=QOSB48ormFcQbksB3EmQbHbw6RH4aGwS"></script>
-    <script src="js/date.js"></script>
-    <script src="js/aos.js" defer></script>
-    <script src="js/myScript.js" defer></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=QOSB48ormFcQbksB3EmQbHbw6RH4aGwS"></script>
+    <script src="./js/date.js"></script>
 </head>
 
 <body>
-
     <div class="nav" id="nav">
-        <div class="wrap pc-wrap">
+        <div class="wrap">
             <ul>
                 <li><a href=""><i class="icon"><img src="./img/home.png" alt=""></i>About Calendar </a></li>
-                <li><a href="almanac.html">Almanac</a></li>
+                <li><a href="./Almanac/Almanac.html">Almanac</a></li>
                 <li><a href="#">Holiday </a></li>
                 <li><a href="#">Notice</a></li>
                 <li><a href="#">other</a></li>
-
             </ul>
-        </div>
-        <div class="mobile-wrap wrap">
-            <div class="menu_btn" id="menu_btn">
-                <svg t="1656077329715" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" p-id="3683" width="32" height="32">
-                    <path
-                        d="M913.6 135.2H380.2c-26.7 0-44.4 17.8-44.4 44.4V224c0 26.7 17.8 44.4 44.4 44.4h533.3c26.7 0 44.4-17.8 44.4-44.4v-44.4c0.1-26.6-17.7-44.4-44.3-44.4zM158 135.2h-44.4c-22.2 0-44.4 22.2-44.4 44.4V224c0 22.2 22.2 44.4 44.4 44.4H158c22.2 0 44.4-22.2 44.4-44.4v-44.4c0.1-22.2-22.1-44.4-44.4-44.4zM158 446.3h-44.4c-22.2 0-44.4 22.2-44.4 44.4v44.4c0 22.2 22.2 44.4 44.4 44.4H158c22.2 0 44.4-22.2 44.4-44.4v-44.4c0.1-22.2-22.1-44.4-44.4-44.4zM913.6 446.3H380.2c-26.7 0-44.4 17.8-44.4 44.4v44.4c0 26.7 17.8 44.4 44.4 44.4h533.3c26.7 0 44.4-17.8 44.4-44.4v-44.4c0.1-26.6-17.7-44.4-44.3-44.4zM158 757.4h-44.4c-22.2 0-44.4 22.2-44.4 44.4v44.4c0 22.2 22.2 44.4 44.4 44.4H158c22.2 0 44.4-22.2 44.4-44.4v-44.4c0.1-22.2-22.1-44.4-44.4-44.4zM913.6 757.4H380.2c-26.7 0-44.4 17.8-44.4 44.4v44.4c0 26.7 17.8 44.4 44.4 44.4h533.3c26.7 0 44.4-17.8 44.4-44.4v-44.4c0.1-26.6-17.7-44.4-44.3-44.4z"
-                        p-id="3684" fill="#e3c200"></path>
-                </svg>
-            </div>
-            <div class="mobile_menu hide" id="mobile_menu">
-                <ul>
-                    <li><a href="">About Calendar </a></li>
-                    <li><a href="almanac.html">Almanac</a></li>
-                    <li><a href="#">Holiday </a></li>
-                    <li><a href="#">Notice</a></li>
-                    <li><a href="#">other</a></li>
-                </ul>
-                <div class="mask" id="mobile_mask"></div>
-            </div>
         </div>
     </div>
 
     <div class="banner">
         <div class="wrap clearfix">
             <div class="b_le">
-                <img src="img/2.png" />
+                <a href="./1jan-30/index.html"> <img src="img/2.png" /></a>
             </div>
             <div class="b_ri">
                 <dl>
@@ -66,9 +41,16 @@
                     <dd id="dd"></dd>
                     <dd id="dd2"></dd>
                 </dl>
+
+                <script>
+                    var d = new Date();
+                    document.getElementById("demo").innerHTML = d.toDateString();
+                </script>
             </div>
         </div>
     </div>
+
+
 
     <div class="list">
         <div class="wrap clearfix">
@@ -179,7 +161,66 @@
     </div>
 
     <!--漂浮进来效果-->
+    <link rel="stylesheet" type="text/css" href="css/aos.css" />
+    <script type="text/javascript" src="js/aos.js"></script>
+    <script>
+        AOS.init({
+            easing: 'ease',
+            duration: 1000,
+            offset: 200,
+            once: true,
+        });
+    </script>
 
+    <script type="text/javascript">
+        //创建和初始化地图函数：
+        function initMap() {
+            createMap(); //创建地图
+            setMapEvent(); //设置地图事件
+            addMapControl(); //向地图添加控件
+            addMapOverlay(); //向地图添加覆盖物
+        }
+
+        function createMap() {
+            map = new BMap.Map("map");
+            map.centerAndZoom(new BMap.Point(130.4447392909592, 33.67062690540013), 25);
+        }
+
+        function setMapEvent() {
+            map.enableScrollWheelZoom();
+            map.enableKeyboard();
+            map.enableDragging();
+            map.enableDoubleClickZoom()
+        }
+
+        function addClickHandler(target, window) {
+            target.addEventListener("click", function() {
+                target.openInfoWindow(window);
+            });
+        }
+
+        function addMapOverlay() {}
+        //向地图添加控件
+        function addMapControl() {
+            var scaleControl = new BMap.ScaleControl({
+                anchor: BMAP_ANCHOR_BOTTOM_LEFT
+            });
+            scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+            map.addControl(scaleControl);
+            var navControl = new BMap.NavigationControl({
+                anchor: BMAP_ANCHOR_TOP_LEFT,
+                type: BMAP_NAVIGATION_CONTROL_LARGE
+            });
+            map.addControl(navControl);
+            var overviewControl = new BMap.OverviewMapControl({
+                anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+                isOpen: true
+            });
+            map.addControl(overviewControl);
+        }
+        var map;
+        initMap();
+    </script>
 </body>
 
 </html>

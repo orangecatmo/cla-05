@@ -1,0 +1,42 @@
+.header {
+    font-size: 1.3rem;
+}
+
+.nav {
+    margin: 2.5rem 0;
+}
+
+.menu .menu__list {
+    display: flex;
+}
+
+.menu .menu__list .menu__list__item {
+    color: #FFCE15;
+}
+
+.menu .menu__list .menu__list__item+.menu__list__item {
+    margin-left: 3rem;
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+}
+
+section .title {
+    width: 35.53rem;
+}
+
+section .title img {
+    width: 100%;
+}
+
+section .time .calender_year {
+    display: flex;
+    /* font-size: 1.72rem; */
+    /* flex-direction: column; */
+}
+
+section .time #currentYear {
+    font-size: 2.8rem;
+}

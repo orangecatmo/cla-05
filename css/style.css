@@ -3,19 +3,15 @@
         height: 3rem;
         font-size: 0.5rem;
     }
-
     .wrap {
         width: 80% !important;
     }
-
     .b_le {
         float: none;
     }
-
     .b_ri {
         float: left !important;
     }
-
     .main_list .list_p {
         font-size: 1.5rem;
     }
@@ -25,7 +21,6 @@
     .nav ul li {
         display: block !important;
     }
-
     .map {
         height: 30em !important;
     }
@@ -165,17 +160,26 @@ body {
 .nav {
     padding-top: 10px;
     margin: 30px 0;
+    font-size: 1.2rem;
+    user-select: none;
+}
+
+.wrap ul {
+    display: flex;
 }
 
 .nav ul li {
     display: inline-block;
     color: #fff;
-    margin: 0 35px;
+}
+
+.nav ul li+li {
+    margin-left: 5rem;
 }
 
 .nav ul li a {
     color: #e3c200;
-    font-size: 12px;
+    /* font-size: 12px; */
 }
 
 .list {
@@ -299,8 +303,4 @@ body {
     top: -3px;
     height: 550px;
     width: 100%;
-}
-
-.mobile-wrap {
-    display: none;
 }
